@@ -71,6 +71,11 @@ public class AutoPilot {
     private final Vehicle vehicle;
     private final Driver driver;
 
+    public AutoPilot(Vehicle vehicle, Driver driver) {
+        this.vehicle = vehicle;
+        this.driver = driver;
+    }
+
     public void drive() {
         int status = this.vehicle.status();
         if (status == 1) {
