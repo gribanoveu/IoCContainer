@@ -1,6 +1,6 @@
 Контенер для использования DI на базе PicoContainer.
 
-Атоматически сканирует классы, на которых есть аннотация `@Bean` для добавления их в PicoContainer.
+Атоматически сканирует классы, на которых есть аннотация `@EnableDI` для добавления их в PicoContainer.
 Для использования нужно вызвать метод `createPicoContainer()` и передать аргументом имя базового пакета, откуда начать сканирование.
 ```java
 public class Main {
@@ -31,9 +31,9 @@ public interface Vehicle {
 ```
 
 ```java
-import com.github.gribanoveu.Bean;
+import com.github.gribanoveu.EnableDI;
 
-@Bean
+@EnableDI
 public class Ford implements Vehicle {
     @Override
     public void start() {
@@ -48,9 +48,9 @@ public class Ford implements Vehicle {
 ```
 
 ```java
-import com.github.gribanoveu.Bean;
+import com.github.gribanoveu.EnableDI;
 
-@Bean
+@EnableDI
 public class Driver {
     private final Vehicle vehicle;
 
@@ -65,9 +65,9 @@ public class Driver {
 ```
 
 ```java
-import com.github.gribanoveu.Bean;
+import com.github.gribanoveu.EnableDI;
 
-@Bean
+@EnableDI
 public class AutoPilot {
     private final Vehicle vehicle;
     private final Driver driver;
@@ -100,4 +100,4 @@ public class Main {
 $ ford start
 ```
 ---
-После вызова `IoCContainer.createPicoContainer()` бины находятся в контейнере и готовы для внедрения через конструктов, где есть аннотация `@Bean`
+После вызова `IoCContainer.createPicoContainer()` бины находятся в контейнере и готовы для внедрения через конструктов, где есть аннотация `@EnableDI`

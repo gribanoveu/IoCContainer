@@ -78,7 +78,7 @@ public class IoCContainer {
                 String fileName = classFile.getName();
                 if (fileName.endsWith(".class")) {
                     Class<?> classObject = Class.forName(basePackage + "." + getPackageName(classFile));
-                    if (classObject.isAnnotationPresent(Bean.class)) classes.add(classObject);
+                    if (classObject.isAnnotationPresent(EnableDI.class)) classes.add(classObject);
                 }
             }
         }
