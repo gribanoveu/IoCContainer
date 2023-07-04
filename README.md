@@ -101,3 +101,24 @@ $ ford start
 ```
 ---
 После вызова `IoCContainer.createPicoContainer()` бины находятся в контейнере и готовы для внедрения через конструктов, где есть аннотация `@EnableDI`
+---
+Использование lombok для внедрения бинов, вместо конструкторов
+```java
+import com.github.gribanoveu.EnableDI;
+
+@EnableDI
+@AllArgsConstructor
+public class AutoPilot {
+    private final Vehicle vehicle;
+    private final Driver driver;
+
+    public void drive() {
+        int status = this.vehicle.status();
+        if (status == 1) {
+            this.driver.start();
+        } else {
+            System.out.println("car not work");
+        }
+    }
+}
+```
